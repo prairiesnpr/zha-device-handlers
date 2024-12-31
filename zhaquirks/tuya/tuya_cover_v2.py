@@ -105,5 +105,6 @@ class TuyaCoveringCluster(WindowCovering, TuyaLocalCluster):
         translation_key="set_upper_limit",
         fallback_name="Set upper limit",
     )
+    .adds(TuyaCoveringCluster)
     # 107 is factory reset, but z2m just throws an error saying you can't
 )
