@@ -442,6 +442,7 @@ class TuyaQuirkBuilder(QuirkBuilder):
         entity_type: EntityType = EntityType.DIAGNOSTIC,
         device_class: BinarySensorDeviceClass | None = None,
         initially_disabled: bool = False,
+        invert: bool = False,
         attribute_initialized_from_cache: bool = True,
         translation_key: str | None = None,
         fallback_name: str | None = None,
@@ -450,9 +451,14 @@ class TuyaQuirkBuilder(QuirkBuilder):
 
         This method allows exposing a binary sensor entity in Home Assistant.
         """
+        converter = None
+        if invert:
+            converter = lambda x: not x
+
         self.tuya_dp_attribute(
             dp_id=dp_id,
             attribute_name=attribute_name,
+            converter=converter,
             type=t.Bool,
             access=foundation.ZCLAttributeAccess.Read
             | foundation.ZCLAttributeAccess.Report,
