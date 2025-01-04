@@ -107,4 +107,6 @@ class TuyaCoveringCluster(WindowCovering, TuyaLocalCluster):
     )
     .adds(TuyaCoveringCluster)
     # 107 is factory reset, but z2m just throws an error saying you can't
+    .skip_configuration()
+    .add_to_registry()
 )
