@@ -141,7 +141,7 @@ class CustomTuyaQuirkBuilder(TuyaQuirkBuilder):
 
 
 (
-    TuyaQuirkBuilder("_TZE200_7bztmfm1", "TS0601")
+    CustomTuyaQuirkBuilder("_TZE200_7bztmfm1", "TS0601")
     .applies_to("_TZE200_mja3fuja", "TS0601")
     .applies_to("_TZE200_dwcarsat", "TS0601")
     .applies_to("_TZE204_dwcarsat", "TS0601")
