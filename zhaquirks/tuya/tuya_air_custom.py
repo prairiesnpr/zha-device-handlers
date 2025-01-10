@@ -138,6 +138,7 @@ class CustomTuyaQuirkBuilder(TuyaQuirkBuilder):
             converter=lambda x: x * scale,
         )
         self.adds(voc_cfg)
+        return self
 
 
 (
