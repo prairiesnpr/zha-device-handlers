@@ -1238,3 +1238,22 @@ base_tuya_motion = (
     .skip_configuration()
     .add_to_registry()
 )
+
+
+# Mercator Ikuu Combination Sensor SSWM-PIR-ZB
+(
+    TuyaQuirkBuilder("_TZE200_agumlajc", "TS0601")
+    .applies_to("_TZE204_agumlajc", "TS0601")
+    .tuya_temperature(dp_id=1, scale=10)
+    .tuya_humidity(dp_id=2)
+    .tuya_illuminance(dp_id=101)
+    .tuya_dp(
+        dp_id=104,
+        ep_attribute=TuyaOccupancySensing.ep_attribute,
+        attribute_name=OccupancySensing.AttributeDefs.occupancy.name,
+        converter=lambda x: x == 1,
+    )
+    .adds(TuyaOccupancySensing)
+    .skip_configuration()
+    .add_to_registry()
+)
